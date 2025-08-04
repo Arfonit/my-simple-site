@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Контакты</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Фоновое видео -->
+<video autoplay muted loop id="bg-video">
+  <source src="background.mp4" type="video/mp4">
+  Ваш браузер не поддерживает видео.
+</video>
+
+<header>
+  <h1>Контакты</h1>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="about.html">О нас</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
+  <button id="themeToggle">🌓</button>
+</header>
+
+<main>
+  <section class="contact-form fade-up">
+    <h2>Связаться с нами</h2>
+    <form id="feedbackForm">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Сообщение:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="animated-button">Отправить</button>
+    </form>
+    <p id="formResponse" class="form-response"></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Мой сайт</p>
+</footer>
+
+<button id="scrollTopBtn" title="Наверх">↑</button>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+/* === БАЗОВЫЕ НАСТРОЙКИ === */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  background: linear-gradient(270deg, #74b9ff, #a29bfe);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* === АНИМАЦИИ ПРИ ЗАГРУЗКЕ === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInMain {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInFooter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === СТИЛИ ХЕДЕРА === */
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  color: #ffea00;
+  transform: scale(1.1);
+}
+
+/* === ОСНОВНОЙ КОНТЕНТ === */
+main {
+  padding: 20px;
+}
+
+h1, h2 {
+  transition: color 0.3s ease, transform 0.3s;
+}
+
+h1:hover, h2:hover {
+  color: #2980b9;
+  transform: scale(1.05);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Активный класс — добавляется скриптом при скролле */
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === КНОПКА === */
+.animated-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #2ecc71;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.animated-button:hover {
+  background-color: #27ae60;
+  transform: scale(1.05);
+}
+
+/* === ФУТЕР === */
+footer {
+  background-color: #eee;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  animation: fadeInFooter 1s ease-in-out 1s forwards;
+  opacity: 0;
+}
+/* === Фоновое видео === */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  font-size: 24px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background-color: #27ae60;
+  transform: scale(1.1);
+}
+
+/* ==== ТЕМЫ ==== */
+
+/* По умолчанию — светлая тема */
+body.light {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --primary-color: #3498db;
+  --button-color: #2ecc71;
+  --button-hover: #27ae60;
+}
+
+/* Тёмная тема */
+body.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #eeeeee;
+  --primary-color: #5dade2;
+  --button-color: #27ae60;
+  --button-hover: #1abc9c;
+}
+
+/* Применим переменные */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Кнопка переключения темы */
+#themeToggle {
+  float: right;
+  font-size: 20px;
+  padding: 5px 10px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+#themeToggle:hover {
+  color: #ffea00;
+  border-color: #ffea00;
+}
+
+/* Используем переменные в других элементах */
+header {
+  background-color: var(--primary-color);
+}
+
+.animated-button {
+  background-color: var(--button-color);
+}
+
+.animated-button:hover {
+  background-color: var(--button-hover);
+}
+
+/* ==== СЛАЙДЕР ==== */
+.slider {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.3s;
+}
+
+.slider button:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.slider .prev {
+  left: 10px;
+}
+
+.slider .next {
+  right: 10px;
+}
+
+/* === ФОРМА ОБРАТНОЙ СВЯЗИ === */
+.contact-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.form-response {
+  margin-top: 15px;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
